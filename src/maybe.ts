@@ -1,6 +1,8 @@
-import {Maybe} from 'tsmonad';
-
 export function last(array: number[]) {
+
+}
+
+export function isLastHigherThan5(marks: number[]): boolean {
 
 }
 

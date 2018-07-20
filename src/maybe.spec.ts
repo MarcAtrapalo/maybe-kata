@@ -3,6 +3,7 @@ import {
     addMark,
     applyMarkCorrection,
     finalMark,
+    isLastHigherThan5,
     last,
 } from './maybe';
 import {Maybe} from 'tsmonad';
@@ -23,6 +24,28 @@ describe('last', () => {
 
     it('should return Nothing if no array given', () => {
         expect((last as any)().equals(Maybe.nothing())).to.be.true;
+    });
+});
+
+describe('isLastHigherThan5', () => {
+    it('should return true if last is higher than 5', () => {
+        expect(isLastHigherThan5([1,7])).to.be.true;
+    });
+
+    it('should return true if last is 5', () => {
+        expect(isLastHigherThan5([5])).to.be.true;
+    });
+
+    it('should return false if last is lesser than 5', () => {
+        expect(isLastHigherThan5([9,4])).to.be.false;
+    });
+
+    it('should return false if array is empty', () => {
+        expect(isLastHigherThan5([])).to.be.false;
+    });
+
+    it('should return false if no array given', () => {
+        expect((isLastHigherThan5 as any)()).to.be.false;
     });
 });
 
