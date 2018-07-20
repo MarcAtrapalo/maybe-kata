@@ -1,3 +1,9 @@
+import {Maybe} from 'tsmonad';
+
+export function last(array: number[]) {
+
+}
+
 // final exam accounts for half the points
 export function finalMark(marks: number[], finalExamMark: number | null) {
     let totalPoints = 0;

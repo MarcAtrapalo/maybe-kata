@@ -3,7 +3,28 @@ import {
     addMark,
     applyMarkCorrection,
     finalMark,
+    last,
 } from './maybe';
+import {Maybe} from 'tsmonad';
+
+describe('last', () => {
+    it('should return a Maybe', () => {
+        const sut = last([]);
+        expect(Maybe.isNothing(sut) || Maybe.isJust(sut)).to.be.true;
+    });
+
+    it('should return the last element', () => {
+        expect(last([1, 2, 3]).equals(Maybe.just(3))).to.be.true;
+    });
+
+    it('should return Nothing if array is empty', () => {
+        expect(last([]).equals(Maybe.nothing())).to.be.true;
+    });
+
+    it('should return Nothing if no array given', () => {
+        expect((last as any)().equals(Maybe.nothing())).to.be.true;
+    });
+});
 
 describe('finalMark', () => {
     it('should return the correct mark for an outstanding student', () => {
