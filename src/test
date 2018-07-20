@@ -1,0 +1,26 @@
+Maybe.just(10)
+
+function head(arr: number[]): Maybe<number> {
+    if (arr.length > 0) return Maybe.just(arr[0]);
+    else return Maybe.nothing();
+}
+
+const divide2ByX = (x: number): Maybe<number> => {
+    if (x !== 0) return Maybe.just(2/x);
+    else return Maybe.nothing();
+};
+
+const h = head([]); // h = Nothing
+const i = h.chain(divide2ByX) // Maybe<T>
+h.caseOf({
+    just: x => x,
+    nothing: x => 0
+}
+
+Maybe.maybe(null) -> Nothing
+Maybe.maybe(4) -> Just(4)
+
+const elToMaybe = (x) => {
+    if (x === null | x === undefined) return Maybe.nothing();
+    else return Maybe.just(x);
+}
